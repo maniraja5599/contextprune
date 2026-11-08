@@ -1,0 +1,52 @@
+{
+  "name": "contextprune",
+  "version": "1.2.0",
+  "description": "Smart AST-driven AI context optimizer. Cuts 50%-85% repo tokens before feeding to LLMs while preserving full type signatures and dependency pathways. Built-in MCP server for Claude & Cursor.",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "contextprune": "./bin/contextprune.js",
+    "cprune": "./bin/contextprune.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maniraja5599/contextprune.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maniraja5599/contextprune/issues"
+  },
+  "homepage": "https://github.com/maniraja5599/contextprune#readme",
+  "scripts": {
+    "start": "node ./bin/contextprune.js",
+    "test": "node test/run-tests.js",
+    "demo": "node scripts/demo.js"
+  },
+  "keywords": [
+    "llm",
+    "context",
+    "ai",
+    "token-optimizer",
+    "ast",
+    "claude",
+    "gpt-4",
+    "cursor",
+    "mcp",
+    "model-context-protocol",
+    "repomix",
+    "prompt-engineering",
+    "codebase-to-prompt",
+    "developer-tools"
+  ],
+  "author": "Mani Raja (https://github.com/maniraja5599)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
