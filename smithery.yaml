@@ -1,0 +1,34 @@
+# Smithery configuration for ContextPrune MCP Server
+# https://smithery.ai/docs/config#smitheryyaml
+version: "1.0.0"
+startCommand:
+  type: stdio
+  config:
+    command: "npx"
+    args: ["-y", "contextprune", "mcp"]
+
+description: "Smart AST-driven AI context optimizer and MCP server. Cuts 50%–85% tokens before feeding LLMs, preserving type contracts, interfaces, and docstrings."
+homepage: "https://github.com/maniraja5599/contextprune"
+repository: "https://github.com/maniraja5599/contextprune"
+
+tools:
+  - name: "prune_context"
+    description: "Scan, prioritize, and skeletonize repository files into a token-optimized prompt within strict budget limits."
+    inputSchema:
+      type: object
+      properties:
+        task:
+          type: string
+          description: "The coding task or question to solve"
+        targets:
+          type: array
+          items:
+            type: string
+          description: "Target file paths to include fully"
+        maxTokens:
+          type: number
+          description: "Target maximum token budget limit"
+        format:
+          type: string
+          enum: ["xml", "markdown"]
+          description: "Output format (xml for Claude, markdown for generic LLMs)"

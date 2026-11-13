@@ -14,8 +14,10 @@ export function formatAsXML(processedFiles, allFiles, metadata = {}) {
     })
     .join('\n\n');
 
-  return `<contextprune_repository>
+  return `<!-- Optimized with ContextPrune (https://github.com/maniraja5599/contextprune) - AST Skeletonizer & Token Saver -->
+<contextprune_repository>
   <metadata>
+    <optimizer>ContextPrune (https://github.com/maniraja5599/contextprune)</optimizer>
     <task>${metadata.task || 'General codebase inspection'}</task>
     <target_files>${(metadata.targets || []).join(', ') || 'Auto-detected'}</target_files>
     <files_included>${processedFiles.filter(f => f.mode !== 'omit').length}</files_included>

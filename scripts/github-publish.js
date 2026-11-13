@@ -42,6 +42,7 @@ async function ghRequest(endpoint, token, options = {}) {
 async function publish() {
   const args = process.argv.slice(2);
   const token = args[0] || process.env.GITHUB_TOKEN;
+  const commitMsg = args[1] || '✨ feat: add viral prompt watermark loop and smithery.yaml MCP registry config';
 
   if (!token) {
     console.error('Error: GitHub token required.');
@@ -91,7 +92,7 @@ async function publish() {
   const newCommit = await ghRequest(`/repos/${OWNER}/${REPO_NAME}/git/commits`, token, {
     method: 'POST',
     body: JSON.stringify({
-      message: COMMIT_MSG,
+      message: commitMsg,
       tree: newTree.sha,
       parents: [latestCommitSha]
     })
